@@ -1,8 +1,7 @@
 {
   "appId": "com.neurohub.app",
   "appName": "NeuroHub",
-  "webDir": ".",
-  "bundledWebRuntime": false,
+  "webDir": "www",
   "android": {
     "allowMixedContent": true
   }
