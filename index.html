@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>NeuroHub</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="app">
+    <header class="topbar">
+      <div class="brand">🧠 NeuroHub</div>
+      <button id="settingsBtn" class="iconBtn">⚙️</button>
+    </header>
+
+    <div class="modelBar">
+      <select id="modelSelect">
+        <optgroup label="Текст">
+          <option value="openai">ChatGPT (OpenAI)</option>
+          <option value="claude">Claude (Anthropic)</option>
+          <option value="gemini">Gemini (Google)</option>
+          <option value="free">Бесплатная модель (без ключа)</option>
+        </optgroup>
+        <optgroup label="Изображения">
+          <option value="image">Генерация изображений (бесплатно)</option>
+        </optgroup>
+      </select>
+    </div>
+
+    <div id="chat" class="chat"></div>
+
+    <div id="cameraWrap" class="cameraWrap hidden">
+      <video id="cam" autoplay playsinline></video>
+      <canvas id="camCanvas" class="hidden"></canvas>
+      <div class="camControls">
+        <button id="camShot" class="iconBtn big">📸</button>
+        <button id="camClose" class="iconBtn">✖</button>
+      </div>
+    </div>
+
+    <form id="inputBar" class="inputBar">
+      <button type="button" id="camBtn" class="iconBtn">📷</button>
+      <input id="textInput" type="text" placeholder="Напиши сообщение..." autocomplete="off">
+      <button type="submit" class="iconBtn send">➤</button>
+    </form>
+  </div>
+
+  <div id="settingsModal" class="modal hidden">
+    <div class="modalBox">
+      <h3>Настройки / API ключи</h3>
+      <p class="hint">Ключи хранятся только на твоём устройстве (localStorage), никуда не отправляются кроме самого провайдера.</p>
+      <label>OpenAI API key</label>
+      <input id="keyOpenAI" type="password" placeholder="sk-...">
+      <label>Anthropic (Claude) API key</label>
+      <input id="keyClaude" type="password" placeholder="sk-ant-...">
+      <label>Google Gemini API key</label>
+      <input id="keyGemini" type="password" placeholder="AIza...">
+      <div class="modalBtns">
+        <button id="saveKeys" class="primaryBtn">Сохранить</button>
+        <button id="closeSettings" class="secondaryBtn">Закрыть</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
